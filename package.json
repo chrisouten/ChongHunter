@@ -1,0 +1,11 @@
+{
+    "name": "ChongHunter"
+  , "version": "0.0.1"
+  , "private": false 
+  , "dependencies": {
+    "underscore": ">0"
+    , "websocket": ">0"
+    , "websocket-server": ">0"
+  }
+}
+

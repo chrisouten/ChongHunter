@@ -4,6 +4,7 @@ function main(config) {
     var ws = require("./ws"),
         server = new ws.MultiVersionWebsocketServer(config.port);
 
+     
     server.onConnect(function(connection) {
         console.log("Obtained connection");
         console.log(connection);

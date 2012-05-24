@@ -1,4 +1,5 @@
-﻿var fs = require('fs');
+﻿var fs = require('fs'),
+    Player = require('./player');
 
 function main(config) {
     var ws = require("./ws"),
@@ -7,8 +8,7 @@ function main(config) {
      
     server.onConnect(function(connection) {
         console.log("Obtained connection");
-        console.log(connection);
-        //new Player(connection, server);
+        new Player(connection);
     });
 }
 

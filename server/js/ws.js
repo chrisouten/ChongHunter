@@ -116,7 +116,7 @@ WS.MultiVersionWebsocketServer = Server.extend({
     },
     _connections: {},
     _counter: 0,
-    _games: [],
+    _arenas: [],
     
     init: function(port) {
         var self = this;
@@ -201,9 +201,13 @@ WS.MultiVersionWebsocketServer = Server.extend({
         this.status_callback = status_callback;
     },
 
-    updateGamess: function(games) {
-        this._games = games;
+    addArena : function(arena) {
+        this._arenas.push(arena);
     },
+    
+    getArena : function(player) {
+        
+    }
 
 });
 

@@ -14,7 +14,8 @@ var cls = require("./lib/class"),
     _ = require('underscore'),
     BISON = require('bison'),
     WS = {},
-    useBison = false;
+    useBison = false,
+    Arena = require("./arena");
 
 module.exports = WS;
 
@@ -205,8 +206,29 @@ WS.MultiVersionWebsocketServer = Server.extend({
         this._arenas.push(arena);
     },
     
+    createArena : function(player) {
+        var arena = new Arena(player);
+        this.addArena(arena);
+    },
+    
     getArena : function(player) {
+        var self = this;
+        var arena = null;
+        connect = function() {
+            if (arena != null) {
+                arena.connect(player);
+            } else {
+                self.createArena(player);
+            }
+        }
+        arena = _.find(this.arenas, function(arena) {
+            if (arena.players.length() < 5) {
+                return arena;
+            }
+            connect();
+        })
         
+        return arena
     }
 
 });

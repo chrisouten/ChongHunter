@@ -28,7 +28,6 @@ module.exports = Player = GameObject.extend({
             if (messageType == Types.Messages.HELLO) {
                 self.setColor(message.color);
                 self.setName(message.name);
-                //TODO JOIN GAME OR CREATE NEW ONE
                 
                 self.arena = self.connection._server.getArena(self);
                 self.arena.addPlayer(self);
